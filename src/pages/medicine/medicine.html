@@ -1,0 +1,63 @@
+<!--
+  Generated template for the MedicinePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>medicine</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item class ="bg5-style" *ngFor="let item of items" >
+
+
+      <ion-row class ="bg1-style">
+          <ion-col col-4>
+              Brand Name
+          </ion-col>
+          <ion-col col-8>
+              {{item.brandName}}
+          </ion-col>
+
+      </ion-row >
+
+    <ion-row class ="bg2-style">
+      <ion-col col-4>
+        Price Rs:
+      </ion-col>
+      <ion-col col-8>
+        {{item.price}}
+      </ion-col>
+
+    </ion-row >
+
+    <ion-row class ="bg3-style">
+      <ion-col col-4>
+        Branch In
+      </ion-col>
+      <ion-col col-8>
+        {{item.town}}
+      </ion-col>
+
+    </ion-row>
+    <ion-row class ="bg4-style">
+      <ion-col col-4>
+        Amount
+      </ion-col>
+      <ion-col col-8>
+        {{item.amount}}
+      </ion-col>
+
+    </ion-row>
+  </ion-item>
+
+</ion-content>
+
+
