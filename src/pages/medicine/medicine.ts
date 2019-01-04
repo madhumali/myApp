@@ -51,7 +51,6 @@ export class MedicinePage {
 
                 .map(res => res.json())
                 .subscribe(res => {
-
                     loader.dismiss()
                     this.items = res.server_response;
 

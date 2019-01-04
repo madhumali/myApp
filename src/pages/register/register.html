@@ -13,13 +13,13 @@
 </ion-header>
 
 
-<ion-content padding>
-    <form>
+
+    <form padding >
         <br>
 
         <br>
         <ion-item>
-            <ion-input type="text" placeholder="Username" name="username" #username></ion-input>
+            <ion-input type="text" placeholder="Username" name="fname" #username></ion-input>
         </ion-item>
         <br>
         <br>
@@ -48,15 +48,16 @@
         <br>
         <br>
         <ion-item>
-            <ion-input type="password" placeholder="Confirm Password" name="confirmPassword" #confirmPassword></ion-input>
+            <ion-input type="password" placeholder="Confirm Password" name="confirmPassword" #confirmPassword ></ion-input>
         </ion-item>
         <br>
         <br>
+        <div text-center>
+            <button ion-button color="dark" (click)="Register()">Register</button>
+        </div>
 
     </form>
 
-    <div text-center>
-        <button ion-button color="dark" (click)="Register()">Register</button>
-    </div>
 
-</ion-content>
+
+

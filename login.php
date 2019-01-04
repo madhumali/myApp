@@ -1,64 +1,48 @@
 <?php
 
-  define("HOST","localhost");
-  define("USER","root");
-  define("PASS","");
-  define("DB","pharmacydb");
-
-  $con = mysqli_connect(HOST,USER,PASS,DB);
-
-  if (!$con){
-      die("Error in connection" . mysqli_connect_error()) ;
-  }
-
-
-if (isset($_SERVER['HTTP_ORIGIN'])) {
-        header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
-        header('Access-Control-Allow-Credentials: true');
-        header('Access-Control-Max-Age: 86400');    // cache for 1 day
-    }
-
-    // Access-Control headers are received during OPTIONS requests
-    if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS'){
-        if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
-            header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-
-        if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
-            header("Access-Control-Allow-Headers:{$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
-
-        exit(0);
-    }
-
-  //require "dbconnect.php";
+    require "dbconnect.php";
 
     $data = file_get_contents("php://input");
 
     if (isset($data)) {
         $request = json_decode($data);
-        $username = $request->username;
+        $fname = $request->fname;
         $password = $request->password;
       }
 
-      $username= mysqli_real_escape_string($con,$username);
+      $fname= mysqli_real_escape_string($con,$fname);
       $password = mysqli_real_escape_string($con,$password);
-     $username = stripslashes($username);
-    $password = stripslashes($password);
 
-    $sql = "SELECT id FROM register WHERE username = '$username' and password = '$password'";
+      $checkPassword="SELECT password FROM users WHERE fname='$fname'";
+    $result = mysqli_query($con,$checkPassword);
+    $row1 = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
-      $result = mysqli_query($con,$sql);
-      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-      //$active = $row['active'];
-      $count = mysqli_num_rows($result);
 
-      // If result matched myusername and mypassword, table row must be 1 row
+//$hash = '$2y$07$BCryptRequires22Chrcte/VlQH0piJtjXl.0t1XkA8pw9dMXTpOq';
 
-      if($count >0) {
-     $response= "Your Login success";
+if (password_verify($password, $row1['password'])) {
+    //echo 'Password is valid!'// and password = '$checkPassword';
+    $sql = "SELECT id FROM users WHERE fName = '$fname'";
 
-      }else {
-    $response= "Your Login Email or Password is invalid";
-      }
+    $result = mysqli_query($con,$sql);
+    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+    //$active = $row['active'];
+    $count = mysqli_num_rows($result);
+
+    // If result matched myusername and mypassword, table row must be 1 row
+
+    if($count >0) {
+        $response= "Your Login success";
+
+    }else {
+        $response= "Your Login Email or Password is invalid";
+    }
+
+} else {
+    $response= "Invalid password";
+}
+
+
 
  echo json_encode( $response);
 ?>

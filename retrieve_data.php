@@ -6,20 +6,20 @@ require  "dbconnect.php";
 
     if (isset($data)) {
         $request = json_decode($data);
-        $username = $request->username;
+        $fname = $request->fname;
     }
 
-$sql ="SELECT * FROM users WHERE username='$username'";
+$sql ="SELECT fName,town,tel,email FROM users WHERE fname='$fname'";
  $result = mysqli_query($con, $sql);
  $response = array();
 
  while($row = mysqli_fetch_array($result)){
 
-        array_push($response, array("id"=>$row[0],
-                  "username"=>$row[1],
-                  "password"=>$row[2],
-                  "mobile"=>$row[3],
-                  "email"=>$row[4] ));
+        array_push($response, array(
+                  "fname"=>$row[0],
+                  "town"=>$row[1],
+                  "tel"=>$row[2],
+                  "email"=>$row[3] ));
 }
 
  echo json_encode(array("server_response"=> $response));

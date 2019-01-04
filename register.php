@@ -5,16 +5,18 @@ require "dbconnect.php";
     $data = file_get_contents("php://input");
     if (isset($data)) {
         $request = json_decode($data);
-        $username = $request->username;
-        $password = $request->password;
-       $mobile = $request->mobile;
-        $emailadd = $request->email;
+        $fname = $request->fname;
+        $town = $request->town;
+        $mobile = $request->mobile;
+        $email = $request->email;
+        //$password = $request->password;
+        $encryptPassword = $request->password;
+        $password = password_hash($encryptPassword, PASSWORD_BCRYPT);
 
     }
 
-$username = stripslashes($username);
-$password = stripslashes($password);
-$sql = "INSERT INTO users (fname, password, mobile, email) VALUES ('$username', '$password','$mobile' , '$emailadd')";
+$sql = "INSERT INTO users (fName,town,tel,email,password,role_id) 
+VALUES ('$fname','$town','$mobile','$email','$password',3)";
 
 if ($con->query($sql) === TRUE) {
   $response= 1;

@@ -13,21 +13,23 @@
 
 </ion-header>
 
+<br>
+<br>
+<br>
+<br>
 
-<ion-content padding>
-
-  <ion-card>
+  <form>
     <br>
     <br>
 
     <ion-item>
-          <ion-input type="text" placeholder="Username" name="username" #username></ion-input>
+          <ion-input type="text" placeholder="Username" name="fname" #fname></ion-input>
         </ion-item>
 <br>
 <br>
 <br>
         <ion-item>
-          <ion-input type="text" placeholder="Password" name="password" #password></ion-input>
+          <ion-input type="password" placeholder="Password" name="password" #password></ion-input>
             </ion-item>
 
 <br>
@@ -36,10 +38,9 @@
       <button ion-button color="dark" (click)="signIn()">Sign In</button>
 </div>
 
-</ion-card>
+</form>
       <div text-center>
           <p stlye="color: white">Don't have an account ?</p>
           <button ion-button color="light" (click)="signUp()" >Register</button>
         </div>
 
-</ion-content>

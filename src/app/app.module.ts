@@ -16,6 +16,7 @@ import{ProfilePage} from '../pages/profile/profile';
 import{IonicStorageModule} from '@ionic/storage';
 import{HttpClientModule} from '@angular/common/http';
 import {MedicinePage} from "../pages/medicine/medicine";
+import {TestPage} from "../pages/test/test";
 @NgModule({
   declarations: [
     MyApp,
@@ -26,7 +27,8 @@ import {MedicinePage} from "../pages/medicine/medicine";
     RegisterPage,
     ProfilePage,
     TabsPage,
-    MedicinePage
+    MedicinePage,
+    TestPage
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import {MedicinePage} from "../pages/medicine/medicine";
     RegisterPage,
     ProfilePage,
     TabsPage,
-    MedicinePage
+    MedicinePage,
+    TestPage
   ],
   providers: [
     StatusBar,

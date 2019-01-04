@@ -17,7 +17,7 @@ import 'rxjs/add/operator/map';
 })
 export class ProfilePage {
 data:any;
-username:any;
+fname:any;
 items:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,  private http: Http,  public loading: LoadingController) {
@@ -27,7 +27,7 @@ items:any;
     console.log('ionViewDidLoad ProfilePage');
   }
   ngOnInit(){
-    this.username = this.navParams.get('username');
+    this.fname = this.navParams.get('fname');
 
 var headers = new Headers();
 headers.append("Accept", 'application/json');
@@ -35,7 +35,7 @@ headers.append('Content-Type', 'application/json' );
 let options = new RequestOptions({ headers: headers });
 
 let data = {
-    username: this.username
+    fname: this.fname
 
   };
 
@@ -45,7 +45,7 @@ content: 'Processing please wait...',
 });
 
 loader.present().then(() => {
-this.http.post('http://localhost/pharmacydb/retrieve_data.php',data, options)
+this.http.post('http://localhost/myApp/retrieve_data.php',data, options)
 //this.http.post('http://edomonitor.com/school-evaluation-api/retrieve_data.php',data, options)
 
 .map(res => res.json())
@@ -57,5 +57,7 @@ this.http.post('http://localhost/pharmacydb/retrieve_data.php',data, options)
     console.log(this.items);
     });
     });
+
+
      }
-    }
+}

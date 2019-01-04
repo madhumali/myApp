@@ -1,4 +1,4 @@
-webpackJsonp([5],{
+webpackJsonp([6],{
 
 /***/ 105:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -42,19 +42,19 @@ var ProfilePage = /** @class */ (function () {
     };
     ProfilePage.prototype.ngOnInit = function () {
         var _this = this;
-        this.username = this.navParams.get('username');
+        this.fname = this.navParams.get('fname');
         var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
         headers.append("Accept", 'application/json');
         headers.append('Content-Type', 'application/json');
         var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
         var data = {
-            username: this.username
+            fname: this.fname
         };
         var loader = this.loading.create({
             content: 'Processing please wait...',
         });
         loader.present().then(function () {
-            _this.http.post('http://localhost/pharmacydb/retrieve_data.php', data, options)
+            _this.http.post('http://localhost/myApp/retrieve_data.php', data, options)
                 .map(function (res) { return res.json(); })
                 .subscribe(function (res) {
                 loader.dismiss();
@@ -65,7 +65,7 @@ var ProfilePage = /** @class */ (function () {
     };
     ProfilePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-profile',template:/*ion-inline-start:"C:\xampp\htdocs\myApp\src\pages\profile\profile.html"*/'<!--\n  Generated template for the ProfilePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n   <!-- <ion-title>profile</ion-title>-->\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n<ion-item *ngFor="let item of items" >\n  <h2>Welcome {{item.username}}</h2>\n  <h3>Your profile information is as follows:</h3>\n  <ion-row>\n    <ion-col col-4>\n     Password\n    </ion-col>\n    <ion-col col-8>\n  {{item.password}}\n    </ion-col>\n\n</ion-row>\n<ion-row>\n    <ion-col col-4>\n      Telephone\n    </ion-col>\n    <ion-col col-8>\n  {{item.telephone}}\n    </ion-col>\n\n</ion-row>\n<ion-row>\n    <ion-col col-4>\n    Email\n    </ion-col>\n    <ion-col col-8>\n  {{item.email}}\n    </ion-col>\n\n</ion-row>\n </ion-item>\n\n\n  //start menu\n <ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Do more with your account</ion-title>\n    </ion-toolbar>\n  </ion-header>\n  <ion-content>\n    <ion-list>\n      <button ion-item (click)="openPage1(homePage)">\n        Home\n      </button>\n      <button ion-item (click)="openPage2(camera)">\n        Upload Photo\n      </button>\n      <button ion-item (click)="openPage3(eventsPage)">\n        Events\n      </button>\n      <button ion-item (click)="closeMenu()">\n        Close Menu\n      </button>\n    </ion-list>\n  </ion-content>\n</ion-menu>\n\n//end menu \n\n<ion-nav id="nav" #content [root]="rootPage"></ion-nav>\n\n\n</ion-content>\n\n\n'/*ion-inline-end:"C:\xampp\htdocs\myApp\src\pages\profile\profile.html"*/,
+            selector: 'page-profile',template:/*ion-inline-start:"C:\xampp\htdocs\myApp\src\pages\profile\profile.html"*/'<!--\n  Generated template for the ProfilePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n   <!-- <ion-title>profile</ion-title>-->\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n<ion-item *ngFor="let item of items" >\n  <h2>Welcome {{item.fname}}</h2>\n  <h3>Your profile information is as follows:</h3>\n  <ion-row>\n    <ion-col col-4>\n     Password\n    </ion-col>\n    <ion-col col-8>\n  {{item.password}}\n    </ion-col>\n\n</ion-row>\n<ion-row>\n    <ion-col col-4>\n      Telephone\n    </ion-col>\n    <ion-col col-8>\n  {{item.tel}}\n    </ion-col>\n\n</ion-row>\n<ion-row>\n    <ion-col col-4>\n    Email\n    </ion-col>\n    <ion-col col-8>\n  {{item.email}}\n    </ion-col>\n\n</ion-row>\n </ion-item>\n\n\n  //start menu\n <ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Do more with your account</ion-title>\n    </ion-toolbar>\n  </ion-header>\n  <ion-content>\n    <ion-list>\n      <button ion-item (click)="openPage1(homePage)">\n        Home\n      </button>\n      <button ion-item (click)="openPage2(camera)">\n        Upload Photo\n      </button>\n      <button ion-item (click)="openPage3(eventsPage)">\n        Events\n      </button>\n      <button ion-item (click)="closeMenu()">\n        Close Menu\n      </button>\n    </ion-list>\n  </ion-content>\n</ion-menu>\n\n//end menu \n\n<ion-nav id="nav" #content [root]="rootPage"></ion-nav>\n\n\n</ion-content>\n\n\n'/*ion-inline-end:"C:\xampp\htdocs\myApp\src\pages\profile\profile.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]])
     ], ProfilePage);
@@ -139,10 +139,9 @@ var MedicinePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-medicine',template:/*ion-inline-start:"C:\xampp\htdocs\myApp\src\pages\medicine\medicine.html"*/'<!--\n  Generated template for the MedicinePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>medicine</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-item class ="bg5-style" *ngFor="let item of items" >\n\n\n      <ion-row class ="bg1-style">\n          <ion-col col-4>\n              Brand Name\n          </ion-col>\n          <ion-col col-8>\n              {{item.brandName}}\n          </ion-col>\n\n      </ion-row >\n\n    <ion-row class ="bg2-style">\n      <ion-col col-4>\n        Price Rs:\n      </ion-col>\n      <ion-col col-8>\n        {{item.price}}\n      </ion-col>\n\n    </ion-row >\n\n    <ion-row class ="bg3-style">\n      <ion-col col-4>\n        Branch In\n      </ion-col>\n      <ion-col col-8>\n        {{item.town}}\n      </ion-col>\n\n    </ion-row>\n    <ion-row class ="bg4-style">\n      <ion-col col-4>\n        Amount\n      </ion-col>\n      <ion-col col-8>\n        {{item.amount}}\n      </ion-col>\n\n    </ion-row>\n  </ion-item>\n\n</ion-content>\n\n\n'/*ion-inline-end:"C:\xampp\htdocs\myApp\src\pages\medicine\medicine.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]])
     ], MedicinePage);
     return MedicinePage;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=medicine.js.map
@@ -171,23 +170,27 @@ webpackEmptyAsyncContext.id = 117;
 
 var map = {
 	"../pages/admin/admin.module": [
-		286,
+		287,
 		0
 	],
 	"../pages/login/login.module": [
-		287,
-		4
+		288,
+		5
 	],
 	"../pages/medicine/medicine.module": [
-		288,
-		3
+		289,
+		4
 	],
 	"../pages/profile/profile.module": [
-		289,
-		2
+		290,
+		3
 	],
 	"../pages/register/register.module": [
-		290,
+		291,
+		2
+	],
+	"../pages/test/test.module": [
+		292,
 		1
 	]
 };
@@ -356,12 +359,12 @@ var HomePage = /** @class */ (function () {
     HomePage.prototype.SearchIn = function () {
         //// check to confirm the username and password fields are filled
         if (this.search.value == "") {
-            var alert = this.alertCtrl.create({
+            var alert_1 = this.alertCtrl.create({
                 title: "ATTENTION",
                 subTitle: "search field is empty",
                 buttons: ['OK']
             });
-            alert.present();
+            alert_1.present();
         }
         else {
             var data = {
@@ -376,12 +379,12 @@ var HomePage = /** @class */ (function () {
     ], HomePage.prototype, "search", void 0);
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\xampp\htdocs\myApp\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Home</ion-title>\n\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n  <button ion-button round block outline (click)="OnGoToLogin()">Login</button>\n  <br>\n  <ion-item>\n    <ion-input type="text" placeholder="Search in here" name="search" #search></ion-input>\n  </ion-item>\n  <br>\n  <div text-center>\n    <button ion-button color="dark" (click)="SearchIn()">search</button>\n  </div>\n\n\n  <ion-slides autoplay="2000" pager>                                      <!--//auto play home picture by 2000ms  -->\n    <ion-slide>\n      <img src="./assets/images/isura.jpg" />                   <!--// path for image file  -->\n    </ion-slide>\n    <ion-slide>\n      <img src="./assets/images/pharma1.jpg" />                  <!--// path for image file  -->\n    </ion-slide>\n    <ion-slide>\n      <img src="./assets/images/pharma2.jpg" />                    <!--// path for image file  -->\n    </ion-slide>\n    <ion-slide>\n      <img src="./assets/images/pharma3.jpg" />                       <!--// path for image file  -->\n    </ion-slide>\n\n  </ion-slides>\n\n  <button ion-button round block outline (click)="OnGoToRegister()">Register</button>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\myApp\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\xampp\htdocs\myApp\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Home</ion-title>\n\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n  <button ion-button round block outline (click)="OnGoToLogin()">Login</button>\n  <br>\n  <ion-item>\n    <ion-input type="text" placeholder="Search in here" name="search" #search></ion-input>\n  </ion-item>\n  <br>\n  <div text-center>\n    <button ion-button color="primary" (click)="SearchIn()">search</button>\n  </div>\n\n\n  <ion-slides autoplay="2000" pager>                                      <!--//auto play home picture by 2000ms  -->\n    <ion-slide>\n      <img src="./assets/images/isura.jpg" />                   <!--// path for image file  -->\n    </ion-slide>\n    <ion-slide>\n      <img src="./assets/images/pharma1.jpg" />                  <!--// path for image file  -->\n    </ion-slide>\n    <ion-slide>\n      <img src="./assets/images/pharma2.jpg" />                    <!--// path for image file  -->\n    </ion-slide>\n    <ion-slide>\n      <img src="./assets/images/pharma3.jpg" />                       <!--// path for image file  -->\n    </ion-slide>\n\n  </ion-slides>\n\n  <button ion-button round block outline (click)="OnGoToRegister()">Register</button>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\myApp\src\pages\home\home.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]])
     ], HomePage);
     return HomePage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=home.js.map
@@ -392,9 +395,54 @@ var HomePage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TestPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the TestPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var TestPage = /** @class */ (function () {
+    function TestPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    TestPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad TestPage');
+    };
+    TestPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-test',template:/*ion-inline-start:"C:\xampp\htdocs\myApp\src\pages\test\test.html"*/'<!--\n  Generated template for the TestPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>test</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\myApp\src\pages\test\test.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+    ], TestPage);
+    return TestPage;
+}());
+
+//# sourceMappingURL=test.js.map
+
+/***/ }),
+
+/***/ 208:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(208);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(228);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(229);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -402,7 +450,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 228:
+/***/ 229:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -410,7 +458,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(270);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(271);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_about_about__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_contact_contact__ = __webpack_require__(204);
@@ -421,15 +469,17 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_login_login__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_register_register__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_profile_profile__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_storage__ = __webpack_require__(278);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_common_http__ = __webpack_require__(280);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_storage__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_common_http__ = __webpack_require__(281);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_medicine_medicine__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_test_test__ = __webpack_require__(207);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -461,7 +511,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_12__pages_register_register__["a" /* RegisterPage */],
                 __WEBPACK_IMPORTED_MODULE_13__pages_profile_profile__["a" /* ProfilePage */],
                 __WEBPACK_IMPORTED_MODULE_8__pages_tabs_tabs__["a" /* TabsPage */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_medicine_medicine__["a" /* MedicinePage */]
+                __WEBPACK_IMPORTED_MODULE_16__pages_medicine_medicine__["a" /* MedicinePage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_test_test__["a" /* TestPage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
@@ -473,7 +524,8 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/medicine/medicine.module#MedicinePageModule', name: 'MedicinePage', segment: 'medicine', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/test/test.module#TestPageModule', name: 'TestPage', segment: 'test', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_14__ionic_storage__["a" /* IonicStorageModule */].forRoot()
@@ -488,7 +540,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_12__pages_register_register__["a" /* RegisterPage */],
                 __WEBPACK_IMPORTED_MODULE_13__pages_profile_profile__["a" /* ProfilePage */],
                 __WEBPACK_IMPORTED_MODULE_8__pages_tabs_tabs__["a" /* TabsPage */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_medicine_medicine__["a" /* MedicinePage */]
+                __WEBPACK_IMPORTED_MODULE_16__pages_medicine_medicine__["a" /* MedicinePage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_test_test__["a" /* TestPage */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_9__ionic_native_status_bar__["a" /* StatusBar */],
@@ -504,7 +557,7 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 270:
+/***/ 271:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -579,6 +632,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
+
  * Generated class for the LoginPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
@@ -591,8 +645,6 @@ var LoginPage = /** @class */ (function () {
         this.http = http;
         this.loading = loading;
     }
-    //constructor(public navCtrl: NavController, public navParams: NavParams) {
-    //}
     LoginPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad LoginPage');
     };
@@ -602,7 +654,7 @@ var LoginPage = /** @class */ (function () {
     LoginPage.prototype.signIn = function () {
         var _this = this;
         //// check to confirm the username and password fields are filled
-        if (this.username.value == "") {
+        if (this.fname.value == "") {
             var alert_1 = this.alertCtrl.create({
                 title: "ATTENTION",
                 subTitle: "Username field is empty",
@@ -623,19 +675,21 @@ var LoginPage = /** @class */ (function () {
             headers.append("Accept", 'application/json');
             headers.append('Content-Type', 'application/json');
             var options_1 = new __WEBPACK_IMPORTED_MODULE_4__angular_http__["d" /* RequestOptions */]({ headers: headers });
-            var data_1 = {
-                username: this.username.value,
-                password: this.password.value
-            };
+            var data_1 = { fname: this.fname.value,
+                password: this.password.value };
             var loader_1 = this.loading.create({
                 content: 'Processing please wait…',
             });
             loader_1.present().then(function () {
-                _this.http.post('http://localhost/pharmacydb/login.php', data_1, options_1)
+                _this.http.post('http://localhost/myApp/login.php', data_1, options_1)
                     .map(function (res) { return res.json(); })
                     .subscribe(function (res) {
                     console.log(res);
                     loader_1.dismiss();
+                    // let alert = this.alertCtrl.create({
+                    //     title:res
+                    // });
+                    // alert.present();
                     if (res == "Your Login success") {
                         var alert_3 = _this.alertCtrl.create({
                             title: "CONGRATS",
@@ -658,16 +712,16 @@ var LoginPage = /** @class */ (function () {
         }
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])("username"),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])("fname"),
         __metadata("design:type", Object)
-    ], LoginPage.prototype, "username", void 0);
+    ], LoginPage.prototype, "fname", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])("password"),
         __metadata("design:type", Object)
     ], LoginPage.prototype, "password", void 0);
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"C:\xampp\htdocs\myApp\src\pages\login\login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  \n      <ion-navbar>\n    <ion-title text-center>Login</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-card>\n    <br>\n    <br>\n\n    <ion-item>\n          <ion-input type="text" placeholder="Username" name="username" #username></ion-input>\n        </ion-item>\n<br>\n<br>\n<br>\n        <ion-item>\n          <ion-input type="text" placeholder="Password" name="password" #password></ion-input>\n            </ion-item>\n\n<br>\n<br>\n<div text-center>\n      <button ion-button color="dark" (click)="signIn()">Sign In</button>\n</div>\n\n</ion-card>\n      <div text-center>\n          <p stlye="color: white">Don\'t have an account ?</p>\n          <button ion-button color="light" (click)="signUp()" >Register</button>\n        </div>\n\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\myApp\src\pages\login\login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"C:\xampp\htdocs\myApp\src\pages\login\login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  \n      <ion-navbar>\n    <ion-title text-center>Login</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<br>\n<br>\n<br>\n<br>\n\n  <form>\n    <br>\n    <br>\n\n    <ion-item>\n          <ion-input type="text" placeholder="Username" name="fname" #fname></ion-input>\n        </ion-item>\n<br>\n<br>\n<br>\n        <ion-item>\n          <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n            </ion-item>\n\n<br>\n<br>\n<div text-center>\n      <button ion-button color="dark" (click)="signIn()">Sign In</button>\n</div>\n\n</form>\n      <div text-center>\n          <p stlye="color: white">Don\'t have an account ?</p>\n          <button ion-button color="light" (click)="signUp()" >Register</button>\n        </div>\n\n'/*ion-inline-end:"C:\xampp\htdocs\myApp\src\pages\login\login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
             __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]])
@@ -721,7 +775,7 @@ var RegisterPage = /** @class */ (function () {
     RegisterPage.prototype.Register = function () {
         var _this = this;
         //// check to confirm the username, email, telephone and password fields are filled
-        if (this.username.value == "") {
+        if (this.fname.value == "") {
             var alert_1 = this.alertCtrl.create({
                 title: "ATTENTION",
                 subTitle: "Username field is empty",
@@ -729,10 +783,10 @@ var RegisterPage = /** @class */ (function () {
             });
             alert_1.present();
         }
-        else if (this.email.value == "") {
+        else if (this.town.value == "") {
             var alert_2 = this.alertCtrl.create({
                 title: "ATTENTION",
-                subTitle: "Email field is empty",
+                subTitle: "Town field is empty",
                 buttons: ['OK']
             });
             alert_2.present();
@@ -745,13 +799,45 @@ var RegisterPage = /** @class */ (function () {
             });
             alert_3.present();
         }
-        else if (this.password.value == "") {
+        else if (this.mobile.value.length != 10) {
             var alert_4 = this.alertCtrl.create({
+                title: "ATTENTION",
+                subTitle: "invalid mobile number",
+                buttons: ['OK']
+            });
+            alert_4.present();
+        }
+        else if (this.email.value == "") {
+            var alert_5 = this.alertCtrl.create({
+                title: "ATTENTION",
+                subTitle: "Email field is empty",
+                buttons: ['OK']
+            });
+            alert_5.present();
+        }
+        else if (this.password.value == "") {
+            var alert_6 = this.alertCtrl.create({
                 title: "ATTENTION",
                 subTitle: "Password field is empty",
                 buttons: ['OK']
             });
-            alert_4.present();
+            alert_6.present();
+        }
+        else if (this.password.value == "") {
+            var alert_7 = this.alertCtrl.create({
+                title: "ATTENTION",
+                subTitle: "Password field is empty",
+                buttons: ['OK']
+            });
+            alert_7.present();
+        }
+        else if (this.confirmPassword.value != this.password.value) {
+            var alert_8 = this.alertCtrl.create({
+                title: "ATTENTION",
+                subTitle: "mismatch confirm password",
+                buttons: ['OK']
+            });
+            alert_8.present();
         }
         else {
             var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]();
@@ -759,66 +845,80 @@ var RegisterPage = /** @class */ (function () {
             headers.append('Content-Type', 'application/json');
             var options_1 = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["d" /* RequestOptions */]({ headers: headers });
             var data_1 = {
-                username: this.username.value,
-                password: this.password.value,
+                fname: this.fname.value,
+                town: this.town.value,
                 mobile: this.mobile.value,
-                email: this.email.value
+                email: this.email.value,
+                password: this.password.value
             };
             var loader_1 = this.loading.create({
                 content: 'Processing please wait…',
             });
             loader_1.present().then(function () {
-                _this.http.post('http://localhost/pharmacydb/register.php', data_1, options_1)
+                _this.http.post('http://localhost/myApp/register.php', data_1, options_1)
                     .map(function (res) { return res.json(); })
                     .subscribe(function (res) {
                     loader_1.dismiss();
+                    //
+                    // let alert = this.alertCtrl.create({
+                    //     title: res
+                    //
+                    // });
+                    // alert.present();
                     if (res == 1) {
-                        var alert_5 = _this.alertCtrl.create({
+                        var alert_9 = _this.alertCtrl.create({
                             title: "CONGRATS",
                             subTitle: ("you suceessfull register"),
                             buttons: ['OK']
                         });
-                        alert_5.present();
+                        alert_9.present();
                         _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__login_login__["a" /* LoginPage */]);
                     }
                     else {
-                        var alert_6 = _this.alertCtrl.create({
+                        var alert_10 = _this.alertCtrl.create({
                             title: "ERROR",
-                            subTitle: ("unsuccess"),
+                            subTitle: ("unsuccessful,you are already registered"),
                             buttons: ['OK']
                         });
-                        alert_6.present();
+                        alert_10.present();
                     }
                 });
             });
         }
     };
-    //constructor(public navCtrl: NavController, public navParams: NavParams) {
-    //}
     RegisterPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad RegisterPage');
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])("email"),
-        __metadata("design:type", Object)
-    ], RegisterPage.prototype, "email", void 0);
-    __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])("username"),
         __metadata("design:type", Object)
-    ], RegisterPage.prototype, "username", void 0);
+    ], RegisterPage.prototype, "fname", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])("town"),
+        __metadata("design:type", Object)
+    ], RegisterPage.prototype, "town", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])("mobile"),
         __metadata("design:type", Object)
     ], RegisterPage.prototype, "mobile", void 0);
     __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])("email"),
+        __metadata("design:type", Object)
+    ], RegisterPage.prototype, "email", void 0);
+    __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])("password"),
         __metadata("design:type", Object)
     ], RegisterPage.prototype, "password", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])("confirmPassword"),
+        __metadata("design:type", Object)
+    ], RegisterPage.prototype, "confirmPassword", void 0);
     RegisterPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-register',template:/*ion-inline-start:"C:\xampp\htdocs\myApp\src\pages\register\register.html"*/'<!--\n  Generated template for the RegisterPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title text-center>Register</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <form>\n        <br>\n\n        <br>\n        <ion-item>\n            <ion-input type="text" placeholder="Username" name="username" #username></ion-input>\n        </ion-item>\n        <br>\n        <br>\n        <ion-item>\n            <ion-input type="text" placeholder="Town" name="town" #town></ion-input>\n        </ion-item>\n        <br>\n        <br>\n        <ion-item>\n            <ion-input type="number" placeholder="Mobile Number" name="mobile" #mobile></ion-input>\n        </ion-item>\n\n        <br>\n        <br>\n        <ion-item>\n            <ion-input type="email" placeholder="Email" name="email" #email></ion-input>\n        </ion-item>\n\n        <br>\n        <br>\n\n        <ion-item>\n            <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n        </ion-item>\n\n        <br>\n        <br>\n        <ion-item>\n            <ion-input type="password" placeholder="Confirm Password" name="confirmPassword" #confirmPassword></ion-input>\n        </ion-item>\n        <br>\n        <br>\n\n    </form>\n\n    <div text-center>\n        <button ion-button color="dark" (click)="Register()">Register</button>\n    </div>\n\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\myApp\src\pages\register\register.html"*/,
+            selector: 'page-register',template:/*ion-inline-start:"C:\xampp\htdocs\myApp\src\pages\register\register.html"*/'<!--\n  Generated template for the RegisterPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title text-center>Register</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n\n    <form padding >\n        <br>\n\n        <br>\n        <ion-item>\n            <ion-input type="text" placeholder="Username" name="fname" #username></ion-input>\n        </ion-item>\n        <br>\n        <br>\n        <ion-item>\n            <ion-input type="text" placeholder="Town" name="town" #town></ion-input>\n        </ion-item>\n        <br>\n        <br>\n        <ion-item>\n            <ion-input type="number" placeholder="Mobile Number" name="mobile" #mobile></ion-input>\n        </ion-item>\n\n        <br>\n        <br>\n        <ion-item>\n            <ion-input type="email" placeholder="Email" name="email" #email></ion-input>\n        </ion-item>\n\n        <br>\n        <br>\n\n        <ion-item>\n            <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n        </ion-item>\n\n        <br>\n        <br>\n        <ion-item>\n            <ion-input type="password" placeholder="Confirm Password" name="confirmPassword" #confirmPassword ></ion-input>\n        </ion-item>\n        <br>\n        <br>\n        <div text-center>\n            <button ion-button color="dark" (click)="Register()">Register</button>\n        </div>\n\n    </form>\n\n\n\n\n'/*ion-inline-end:"C:\xampp\htdocs\myApp\src\pages\register\register.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]])
     ], RegisterPage);
     return RegisterPage;
 }());
@@ -827,5 +927,5 @@ var RegisterPage = /** @class */ (function () {
 
 /***/ })
 
-},[207]);
+},[208]);
 //# sourceMappingURL=main.js.map
