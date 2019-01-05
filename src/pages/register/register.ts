@@ -116,6 +116,30 @@ else
 
 alert.present();
 }
+else
+    if(this.password.value.length<6) {
+        let alert = this.alertCtrl.create({
+            title: "ATTENTION",
+            subTitle: "Password length at least 6 characters",
+            buttons: ['OK']
+
+        });
+        alert.present();
+    }
+    else
+      if(this.confirmPassword.value ==""){
+          let alert = this.alertCtrl.create({
+              title:"ATTENTION",
+              subTitle:"Confirm Password field is empty",
+              buttons: ['OK']
+
+          });
+
+          alert.present();
+      }
+
+
+
     else
     if(this.confirmPassword.value!=this.password.value){
         let alert = this.alertCtrl.create({
