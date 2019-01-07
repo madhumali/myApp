@@ -1,8 +1,8 @@
 <?php
 
-define("HOST","localhost");
+define("HOST","18.218.123.148");
 define("USER","root");
-define("PASS","");
+define("PASS","srilanka");
 define("DB","pharmacy");
 
 $con = mysqli_connect(HOST,USER,PASS,DB);

@@ -152,19 +152,19 @@ content: 'Processing please wait…',
 
 
 loader.present().then(() => {
-this.http.post('http://localhost/myApp/register.php',data, options)
+this.http.post('http://192.168.8.101/myApp/register.php',data, options)
 
 
         .map(res => res.json())
         .subscribe(res => {
         loader.dismiss();
 
-                //
-                // let alert = this.alertCtrl.create({
-                //     title: res
-                //
-                // });
-                // alert.present();
+                
+                 let alert = this.alertCtrl.create({
+                     title: res
+                
+                 });
+                 alert.present();
 
         if(res==1){
         let alert = this.alertCtrl.create({

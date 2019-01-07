@@ -17,6 +17,17 @@ import{IonicStorageModule} from '@ionic/storage';
 import{HttpClientModule} from '@angular/common/http';
 import {MedicinePage} from "../pages/medicine/medicine";
 import {TestPage} from "../pages/test/test";
+
+import { Camera } from '@ionic-native/camera';
+import { FileTransfer } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+import {CameraPage} from "../pages/camera/camera";
+import{SMS}from '@ionic-native/sms';
+import{ CallNumber } from "@ionic-native/call-number";
+import { SmsPage } from "../pages/sms/sms";
+
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -28,7 +39,9 @@ import {TestPage} from "../pages/test/test";
     ProfilePage,
     TabsPage,
     MedicinePage,
-    TestPage
+    TestPage,
+    CameraPage,
+    SmsPage
   ],
   imports: [
     BrowserModule,
@@ -48,11 +61,17 @@ import {TestPage} from "../pages/test/test";
     ProfilePage,
     TabsPage,
     MedicinePage,
-    TestPage
+    TestPage,
+    CameraPage,
+    SmsPage
+
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Camera, FileTransfer, File,
+    SMS,
+    CallNumber,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
