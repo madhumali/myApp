@@ -1032,68 +1032,84 @@ var RegisterPage = /** @class */ (function () {
         var _this = this;
         //// check to confirm the username, email, telephone and password fields are filled
         if (this.fname.value == "") {
-            var alert_1 = this.alertCtrl.create({
+            var alert = this.alertCtrl.create({
                 title: "ATTENTION",
                 subTitle: "Username field is empty",
                 buttons: ['OK']
             });
-            alert_1.present();
+            alert.present();
         }
         else if (this.town.value == "") {
-            var alert_2 = this.alertCtrl.create({
+            var alert = this.alertCtrl.create({
                 title: "ATTENTION",
                 subTitle: "Town field is empty",
                 buttons: ['OK']
             });
-            alert_2.present();
+            alert.present();
         }
         else if (this.mobile.value == "") {
-            var alert_3 = this.alertCtrl.create({
+            var alert = this.alertCtrl.create({
                 title: "ATTENTION",
                 subTitle: "Mobile number field is empty",
                 buttons: ['OK']
             });
-            alert_3.present();
+            alert.present();
         }
         else if (this.mobile.value.length != 10) {
-            var alert_4 = this.alertCtrl.create({
+            var alert = this.alertCtrl.create({
                 title: "ATTENTION",
                 subTitle: "invalid mobile number",
                 buttons: ['OK']
             });
-            alert_4.present();
+            alert.present();
         }
         else if (this.email.value == "") {
-            var alert_5 = this.alertCtrl.create({
+            var alert = this.alertCtrl.create({
                 title: "ATTENTION",
                 subTitle: "Email field is empty",
                 buttons: ['OK']
             });
-            alert_5.present();
+            alert.present();
         }
         else if (this.password.value == "") {
-            var alert_6 = this.alertCtrl.create({
+            var alert = this.alertCtrl.create({
                 title: "ATTENTION",
                 subTitle: "Password field is empty",
                 buttons: ['OK']
             });
-            alert_6.present();
+            alert.present();
         }
         else if (this.password.value == "") {
-            var alert_7 = this.alertCtrl.create({
+            var alert = this.alertCtrl.create({
                 title: "ATTENTION",
                 subTitle: "Password field is empty",
                 buttons: ['OK']
             });
-            alert_7.present();
+            alert.present();
+        }
+        else if (this.password.value.length < 6) {
+            var alert = this.alertCtrl.create({
+                title: "ATTENTION",
+                subTitle: "Password length at least 6 characters",
+                buttons: ['OK']
+            });
+            alert.present();
+        }
+        else if (this.confirmPassword.value == "") {
+            var alert = this.alertCtrl.create({
+                title: "ATTENTION",
+                subTitle: "Confirm Password field is empty",
+                buttons: ['OK']
+            });
+            alert.present();
         }
         else if (this.confirmPassword.value != this.password.value) {
-            var alert_8 = this.alertCtrl.create({
+            var alert = this.alertCtrl.create({
                 title: "ATTENTION",
                 subTitle: "mismatch confirm password",
                 buttons: ['OK']
             });
-            alert_8.present();
+            alert.present();
         }
         else {
             var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]();
@@ -1120,21 +1136,21 @@ var RegisterPage = /** @class */ (function () {
                     });
                     alert.present();
                     if (res == 1) {
-                        var alert_9 = _this.alertCtrl.create({
+                        var alert = _this.alertCtrl.create({
                             title: "CONGRATS",
                             subTitle: ("you suceessfull register"),
                             buttons: ['OK']
                         });
-                        alert_9.present();
+                        alert.present();
                         _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__login_login__["a" /* LoginPage */]);
                     }
                     else {
-                        var alert_10 = _this.alertCtrl.create({
+                        var alert = _this.alertCtrl.create({
                             title: "ERROR",
                             subTitle: ("unsuccessful,you are already registered"),
                             buttons: ['OK']
                         });
-                        alert_10.present();
+                        alert.present();
                     }
                 });
             });
@@ -1171,10 +1187,10 @@ var RegisterPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-register',template:/*ion-inline-start:"C:\xampp\htdocs\myApp\src\pages\register\register.html"*/'<!--\n\n  Generated template for the RegisterPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title text-center>Register</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n\n\n    <form padding >\n\n        <br>\n\n\n\n        <br>\n\n        <ion-item>\n\n            <ion-input type="text" placeholder="Username" name="fname" #username></ion-input>\n\n        </ion-item>\n\n        <br>\n\n        <br>\n\n        <ion-item>\n\n            <ion-input type="text" placeholder="Town" name="town" #town></ion-input>\n\n        </ion-item>\n\n        <br>\n\n        <br>\n\n        <ion-item>\n\n            <ion-input type="number" placeholder="Mobile Number" name="mobile" #mobile></ion-input>\n\n        </ion-item>\n\n\n\n        <br>\n\n        <br>\n\n        <ion-item>\n\n            <ion-input type="email" placeholder="Email" name="email" #email></ion-input>\n\n        </ion-item>\n\n\n\n        <br>\n\n        <br>\n\n\n\n        <ion-item>\n\n            <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n\n        </ion-item>\n\n\n\n        <br>\n\n        <br>\n\n        <ion-item>\n\n            <ion-input type="password" placeholder="Confirm Password" name="confirmPassword" #confirmPassword ></ion-input>\n\n        </ion-item>\n\n        <br>\n\n        <br>\n\n        <div text-center>\n\n            <button ion-button color="dark" (click)="Register()">Register</button>\n\n        </div>\n\n\n\n    </form>\n\n\n\n\n\n\n\n\n\n'/*ion-inline-end:"C:\xampp\htdocs\myApp\src\pages\register\register.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _d || Object])
     ], RegisterPage);
     return RegisterPage;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=register.js.map
