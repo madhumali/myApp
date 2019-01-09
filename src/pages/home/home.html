@@ -1,38 +1,39 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-navbar>
+        <ion-title><h2>Welcome to ISURA PHARMACY</h2></ion-title>
 
-  </ion-navbar>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
-  <button ion-button round block outline (click)="OnGoToLogin()">Login</button>
-  <br>
-  <ion-item>
-    <ion-input type="text" placeholder="Search in here" name="search" #search></ion-input>
-  </ion-item>
-  <br>
-  <div text-center>
-    <button ion-button color="primary" (click)="SearchIn()">search</button>
-  </div>
+
+    <ion-item>
+        <ion-input type="text" placeholder="Search in here" name="search" #search></ion-input>          <!--search field-->
+    </ion-item>
+    <br>
+    <div text-center>
+        <button ion-button color="primary" (click)="SearchIn()">search</button>
+    </div>
+    <br>
+    <button ion-button round block outline (click)="OnGoToLogin()">Login</button>
 
 
-  <ion-slides autoplay="2000" pager>                                      <!--//auto play home picture by 2000ms  -->
-    <ion-slide>
-      <img src="./assets/images/isura.jpg" />                   <!--// path for image file  -->
-    </ion-slide>
-    <ion-slide>
-      <img src="./assets/images/pharma1.jpg" />                  <!--// path for image file  -->
-    </ion-slide>
-    <ion-slide>
-      <img src="./assets/images/pharma2.jpg" />                    <!--// path for image file  -->
-    </ion-slide>
-    <ion-slide>
-      <img src="./assets/images/pharma3.jpg" />                       <!--// path for image file  -->
-    </ion-slide>
+    <ion-slides autoplay="2000" pager>                                      <!--//auto play home picture by 2000ms  -->
+        <ion-slide>
+            <img src="./assets/images/isura.jpg"/>                   <!--// path for image file  -->
+        </ion-slide>
+        <ion-slide>
+            <img src="./assets/images/pharma1.jpg"/>                  <!--// path for image file  -->
+        </ion-slide>
+        <ion-slide>
+            <img src="./assets/images/pharma2.jpg"/>                    <!--// path for image file  -->
+        </ion-slide>
+        <ion-slide>
+            <img src="./assets/images/pharma3.jpg"/>                       <!--// path for image file  -->
+        </ion-slide>
 
-  </ion-slides>
+    </ion-slides>
 
-  <button ion-button round block outline (click)="OnGoToRegister()">Register</button>
+    <button ion-button round block outline (click)="OnGoToRegister()">Register</button>
 </ion-content>

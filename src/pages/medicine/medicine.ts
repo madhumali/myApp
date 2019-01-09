@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
 import {Headers, Http, RequestOptions} from "@angular/http";
 
@@ -11,8 +11,8 @@ import {Headers, Http, RequestOptions} from "@angular/http";
 
 @IonicPage()
 @Component({
-  selector: 'page-medicine',
-  templateUrl: 'medicine.html',
+    selector: 'page-medicine',
+    templateUrl: 'medicine.html',
 })
 
 export class MedicinePage {
@@ -46,8 +46,7 @@ export class MedicinePage {
         });
 
         loader.present().then(() => {
-            this.http.post('http://192.168.8.101/myApp/search.php', data, options)
-            //this.http.post('http://edomonitor.com/school-evaluation-api/retrieve_data.php',data, options)
+            this.http.post('http://localhost/myApp/search.php', data, options)
 
                 .map(res => res.json())
                 .subscribe(res => {

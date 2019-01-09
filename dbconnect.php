@@ -1,14 +1,14 @@
 <?php
 
-define("HOST","18.218.123.148");
-define("USER","root");
-define("PASS","srilanka");
-define("DB","pharmacy");
+define("HOST", "18.218.123.148");
+define("USER", "root");
+define("PASS", "srilanka");
+define("DB", "pharmacy");
 
-$con = mysqli_connect(HOST,USER,PASS,DB);
+$con = mysqli_connect(HOST, USER, PASS, DB);
 
-if (!$con){
-    die("Error in connection" . mysqli_connect_error()) ;
+if (!$con) {
+    die("Error in connection" . mysqli_connect_error());
 }
 
 

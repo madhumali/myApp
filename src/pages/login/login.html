@@ -6,10 +6,10 @@
 -->
 <ion-header>
 
-  
-      <ion-navbar>
-    <ion-title text-center>Login</ion-title>
-  </ion-navbar>
+
+    <ion-navbar>
+        <ion-title text-center>Login</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
@@ -18,29 +18,29 @@
 <br>
 <br>
 
-  <form>
+<form>
     <br>
     <br>
 
     <ion-item>
-          <ion-input type="text" placeholder="Username" name="fname" #fname></ion-input>
-        </ion-item>
-<br>
-<br>
-<br>
-        <ion-item>
-          <ion-input type="password" placeholder="Password" name="password" #password></ion-input>
-            </ion-item>
+        <ion-input color="dark" type="text" placeholder="Username" name="fname" #fname></ion-input>         <!--user name field-->
+    </ion-item>
+    <br>
+    <br>
+    <br>
+    <ion-item>
+        <ion-input color="dark" type="password" placeholder="Password" name="password" #password></ion-input>       <!--password field-->
+    </ion-item>
 
-<br>
-<br>
-<div text-center>
-      <button ion-button color="dark" (click)="signIn()">Sign In</button>
-</div>
+    <br>
+    <br>
+    <div text-center>
+        <button ion-button color="dark" (click)="signIn()">Sign In</button>
+    </div>
 
 </form>
-      <div text-center>
-          <p stlye="color: white">Don't have an account ?</p>
-          <button ion-button color="light" (click)="signUp()" >Register</button>
-        </div>
+<div text-center>
+    <p stlye="color: white">Don't have an account ?</p>
+    <button ion-button color="light" (click)="signUp()">Register</button>
+</div>
 

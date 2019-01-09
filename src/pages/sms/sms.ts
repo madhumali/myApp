@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import{SMS} from '@ionic-native/sms';
 import{ CallNumber } from "@ionic-native/call-number";
-import { IonicPage, NavController, NavParams ,ToastController} from 'ionic-angular';
+import { NavController,ToastController} from 'ionic-angular';
 
 
 @Component({
@@ -18,7 +18,7 @@ export class SmsPage {
   }
 
   call(){
-  this.callSve.callNumber('0715159081',true).then(()=>{
+  this.callSve.callNumber('0768988696',true).then(()=>{
   		console.log('call worked');
   }).catch((err) =>{
   	alert(JSON.stringify(err))
